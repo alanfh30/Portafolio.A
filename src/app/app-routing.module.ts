@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component';
+import { BoostrapComponent } from './boostrap/boostrap.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { CurriculumComponent } from './curriculum/curriculum.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: 'inicio', component: InicioComponent},
-  {path: '', component: InicioComponent},
+  {path: 'inicio', component: HomeComponent},
+  {path: '', component: HomeComponent},
+  {path: 'curriculum', component:CurriculumComponent},
+  {path: 'contacto', component:ContactoComponent},
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
