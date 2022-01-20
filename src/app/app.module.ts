@@ -25,6 +25,7 @@ import { BoostrapComponent } from './boostrap/boostrap.component';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LayoutComponent } from './layout/layout.component';
+import { JuegoComponent } from './juego/juego.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LayoutComponent } from './layout/layout.component';
     BoostrapComponent,
     HomeComponent,
     ContactoComponent,
-    LayoutComponent
+    LayoutComponent,
+    JuegoComponent
   ],
   imports: [
     BrowserModule,

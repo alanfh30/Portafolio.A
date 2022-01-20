@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
+import * as moment from 'moment'; 
 
 
 @Component({
@@ -13,6 +14,7 @@ export class CurriculumComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   public url: string;
+  public url2!:string;
   public key: string;
   public gif:any;
   public isLoad = false;
@@ -26,20 +28,20 @@ export class CurriculumComponent implements OnInit {
   ngOnInit(): void {
     this.isLoad = true; 
     this._http.get(this.url+ this.key).toPromise().then(
-      response =>{
-          
-          console.log(response);
-          this.isLoad=false;
-          //const img = document.createElement('img')
-          //img.src = url;
-          //document.body.append(img);
+      (response:any) =>  {
+          console.log(response.data);
+          const {url} = response.data.images.original;
+          console.log(url);
+          this.url2 = url;
+          this.isLoad = false;
       }
+    
       
 
-    ).catch(error=>{console.log(error);}
-    )
+    ).catch(error=>{console.log(error);}) 
 
-  }
+    
+}
 
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
